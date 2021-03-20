@@ -192,13 +192,13 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.okhttp3:okhttp:$ok_http_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$ok_http_version"
+    implementation("com.facebook.fresco:fresco:$fresco_version")
+    implementation "com.facebook.fresco:imagepipeline-okhttp3:$fresco_imagepipeline_okhttp3_version"
 
     // Database
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
-    implementation "net.zetetic:android-database-sqlcipher:$android_sqlcipher"
-    implementation "androidx.sqlite:sqlite-ktx:$sqlite_ktx_version"
 
     implementation "androidx.security:security-crypto:$security_crypto_version"
 
