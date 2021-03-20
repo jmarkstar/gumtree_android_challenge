@@ -10,20 +10,20 @@ plugins {
 
 apply from: '../jacoco.gradle'
 
-// Properties from local.properties
-def localPropertiesFile = rootProject.file("local.properties")
-def localProperties = new Properties()
-if (localPropertiesFile.exists()) {
-    localProperties.load(new FileInputStream(localPropertiesFile))
-    if (!localProperties.containsKey('api.key.development') ||
-            !localProperties.containsKey('api.key.production')) {
-        throw new IllegalArgumentException("api key properties were not found in local.properties")
+// Properties from private.properties
+def privatePropertiesFile = rootProject.file("private.properties")
+def privateProperties = new Properties()
+if (privatePropertiesFile.exists()) {
+    privateProperties.load(new FileInputStream(privatePropertiesFile))
+    if (!privateProperties.containsKey('api.key.development') ||
+            !privateProperties.containsKey('api.key.production')) {
+        throw new IllegalArgumentException("api key properties were not found in private.properties")
     }
 } else {
-    throw new IllegalArgumentException("local.properties was not found in the project")
+    throw new IllegalArgumentException("private.properties was not found in the project")
 }
 
-def LOCAL = { k -> "\"${localProperties.get(k)}\"" }
+def PRIVATE_CONFIG = { k -> "\"${privateProperties.get(k)}\"" }
 
 // Properties from keystore.properties
 def keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -90,7 +90,7 @@ android {
 
             buildConfigField "String", API_SCHEMA, CONFIG("api.schema.development")
             buildConfigField "String", API_HOST, CONFIG("api.host.development")
-            buildConfigField "String", API_KEY, LOCAL("api.key.development")
+            buildConfigField "String", API_KEY, PRIVATE_CONFIG("api.key.development")
         }
 
         release {
@@ -102,7 +102,7 @@ android {
 
             buildConfigField "String", API_SCHEMA, CONFIG("api.schema.production")
             buildConfigField "String", API_HOST, CONFIG("api.host.production")
-            buildConfigField "String", API_KEY, LOCAL("api.key.development")
+            buildConfigField "String", API_KEY, PRIVATE_CONFIG("api.key.production")
         }
     }
 
