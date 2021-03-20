@@ -4,6 +4,22 @@ orbs:
   android: circleci/android@1.0.0
 
 commands:
+  restore_code_project:
+    steps:
+      - checkout
+
+      - run:
+          name: Restore private.properties file in root project
+          command: echo $PRIVATE_PROPERTIES | base64 -d > private.properties
+
+      #- run:
+      #    name: Restore Google Services Key
+      #    command: echo $GOOGLE_SERVICES_KEY | base64 -d > app/google-services.json
+
+      #- run:
+      #    name: Restore Google Services Account
+      #    command: echo $GOOGLE_SERVICES_ACCOUNT | base64 -d > google-services-account.json
+
   restore_caches:
     steps:
       - restore_cache:
@@ -131,7 +147,7 @@ jobs:
       name: android/android-machine
       resource-class: large
     steps:
-      - checkout
+      - restore_code_project
       - restore_caches
       - clean
       - debug_build
@@ -142,7 +158,7 @@ jobs:
       name: android/android-machine
       resource-class: large
     steps:
-      - checkout
+      - restore_code_project
       - restore_caches
       - clean
       - debug_test
@@ -152,7 +168,7 @@ jobs:
       name: android/android-machine
       resource-class: large
     steps:
-      - checkout
+      - restore_code_project
       - restore_caches
       - clean
       - debug_build
@@ -163,7 +179,7 @@ jobs:
       name: android/android-machine
       resource-class: large
     steps:
-      - checkout
+      - restore_code_project
       - restore_caches
       - release_build
       - release_test
@@ -173,13 +189,12 @@ jobs:
       name: android/android-machine
       resource-class: large
     steps:
-      - checkout
+      - restore_code_project
       - restore_caches
       - release_assemble
       - store_release_apk
 
 workflows:
-  version: 2
   android_workflow:
     jobs:
       - build_debug:
