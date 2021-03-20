@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+
+    <!--
+        Lint checks
+        http://tools.android.com/tips/lint-checks
+     -->
+
+    <!-- Disable this check because I'm using @Parcelize and I don't need to create the
+        static field called CREATOR manually.
+    -->
+    <issue id="ParcelCreator" severity="ignore" />
+
+</lint>

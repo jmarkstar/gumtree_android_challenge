@@ -1,0 +1,6 @@
+[*.{kt,kts}]
+disabled_rules=import-ordering
+
+insert_final_newline=true
+
+max_line_length=off

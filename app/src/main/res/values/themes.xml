@@ -11,6 +11,27 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
         <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/ToolbarStyle</item>
+        <item name="android:windowContentTransitions">true</item>
     </style>
+
+    <style name="TextAppearance.Bold" parent="android:TextAppearance">
+        <item name="fontPath">fonts/SF-UI-Text-Bold.otf</item>
+    </style>
+
+    <style name="ToolbarStyle" parent="Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="android:titleTextStyle">@style/Toolbar.TitleText</item>
+    </style>
+
+    <style name="ToolbarTheme" parent="Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="android:textColorSecondary">@color/black</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">23sp</item>
+        <item name="fontPath">fonts/SF-UI-Text-Bold.otf</item>
+    </style>
+
 </resources>
