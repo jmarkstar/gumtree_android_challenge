@@ -1,7 +1,8 @@
-package com.jmarkstar.gumtree_challenge
+package com.jmarkstar.gumtree_challenge.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.jmarkstar.gumtree_challenge.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
