@@ -4,7 +4,7 @@
 ./gradlew clean buildDebug lintDebug ktlintDebugCheck testDebugUnitTest testDebugUnitTestCoverage --stacktrace
 
 # unit test specific package
-# ./gradlew clean testDebugUnitTest  --tests "com.jmarkstar.gumtree_challenge.*"
+# ./gradlew clean testDebugUnitTest  --tests "com.jmarkstar.gumtree_challenge.repositories.local.*"
 
 # unit test specific test class
 # ./gradlew clean testDebugUnitTest  --tests "com.jmarkstar.gumtree_challenge.MainActivityTest"

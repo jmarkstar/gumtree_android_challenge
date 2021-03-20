@@ -1,0 +1,47 @@
+{
+  "coord": {
+    "lon": 151.1649,
+    "lat": -33.794
+  },
+  "weather": [
+    {
+      "id": 501,
+      "main": "Rain",
+      "description": "moderate rain",
+      "icon": "10n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 19.87,
+    "feels_like": 23.04,
+    "temp_min": 19.44,
+    "temp_max": 21.11,
+    "pressure": 1019,
+    "humidity": 98
+  },
+  "visibility": 5039,
+  "wind": {
+    "speed": 0.45,
+    "deg": 26,
+    "gust": 2.24
+  },
+  "rain": {
+    "1h": 3.16
+  },
+  "clouds": {
+    "all": 100
+  },
+  "dt": 1616228430,
+  "sys": {
+    "type": 3,
+    "id": 2005356,
+    "country": "AU",
+    "sunrise": 1616183895,
+    "sunset": 1616227653
+  },
+  "timezone": 39600,
+  "id": 0,
+  "name": "Chatswood West",
+  "cod": 200
+}

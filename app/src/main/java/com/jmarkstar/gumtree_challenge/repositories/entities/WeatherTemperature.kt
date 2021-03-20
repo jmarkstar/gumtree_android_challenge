@@ -4,6 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 data class WeatherTemperature(
     val temp: Double,
-    @SerializedName("feels_like") val feelsLike: String,
+    @SerializedName("feels_like") val feelsLike: Double,
     val humidity: Int
 )

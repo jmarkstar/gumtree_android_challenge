@@ -6,8 +6,8 @@ import com.jmarkstar.gumtree_challenge.repositories.entities.WeatherTemperature
 
 data class GetWeatherResponse(
     val name: String,
-    val weather: Weather,
+    val weather: List<Weather>,
     @SerializedName("main") val temperature: WeatherTemperature,
-    val dateTime: Long,
+    @SerializedName("dt") val dateTime: Long,
     val timezone: Long,
 )
