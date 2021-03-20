@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "gumtree_android_challenge"
