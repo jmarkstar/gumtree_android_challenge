@@ -207,7 +207,7 @@ workflows:
             branches:
               only:
                 - /^task\/.*/
-                - master
+                - main
 
       - build_test_debug:
           filters:
@@ -225,7 +225,7 @@ workflows:
             branches:
               only:
                 - /^release\/.*/
-                - master
+                - main
 
       - generate_apk:
           requires:
@@ -237,4 +237,4 @@ workflows:
               only:
                 - /^release\/.*/
                 - /^feature\/.*/
-                - master
+                - main
