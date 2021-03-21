@@ -37,8 +37,35 @@ class SearchWeatherFragment : BaseFragment<FragmentSearchWeatherBinding>() {
         binding.apply {
 
             viewModel.lastSearches.observe(viewLifecycleOwner) {
-                if (it is Resource.Success) {
-                    recentSearchAdapter.setItems(it.data)
+                when (it) {
+                    is Resource.Success -> {
+                        rvLastSearches.visible()
+                        tvLastSearchesMessage.invisible()
+                        pgLoadingLastSearches.invisible()
+                        tvSeeAllRecentSearches.visible()
+
+                        recentSearchAdapter.setItems(it.data)
+                    }
+
+                    is Resource.Error -> {
+                        rvLastSearches.invisible()
+                        pgLoadingLastSearches.invisible()
+                        tvLastSearchesMessage.visible()
+
+                        // TODO: create a common error handler for generics exception for the whole project.
+                        if (it.throwable is IllegalStateException) {
+                            tvSeeAllRecentSearches.invisible()
+                            tvLastSearchesMessage.text = getString(R.string.search_screen_last_searches_empty_message)
+                        } else
+                            tvLastSearchesMessage.text = it.message
+                    }
+
+                    is Resource.Loading -> {
+                        tvSeeAllRecentSearches.invisible()
+                        rvLastSearches.invisible()
+                        tvLastSearchesMessage.invisible()
+                        pgLoadingLastSearches.visible()
+                    }
                 }
             }
 

@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">Weda Demo</string>
+    <string name="app_name">Weather Demo</string>
 
     <string name="search_screen_title">Check the weather</string>
-    <string name="search_screen_see_all_recent_searches_label">Select one of your recent searches:</string>
-    <string name="search_screen_select_recent_searches_label">See all recent searches</string>
+    <string name="search_screen_last_searches_empty_message">No searches found. Make your first search :)</string>
+    <string name="search_screen_see_all_recent_searches_label">See all recent searches</string>
+    <string name="search_screen_select_recent_searches_label">Select one of your last searches:</string>
     <string name="search_screen_search_button">Search</string>
     <string name="search_screen_search_new_place_label">Or search a new place by:</string>
     <string name="search_screen_search_option_city_name">City Name</string>

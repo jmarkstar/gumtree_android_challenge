@@ -30,17 +30,47 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvLastSearchesLabel"
+            android:overScrollMode="never"
             tools:itemCount="3"
             tools:listitem="@layout/view_recent_search" />
+
+        <ProgressBar
+            android:id="@+id/pgLoadingLastSearches"
+            android:layout_width="@dimen/search_progress_size"
+            android:layout_height="@dimen/search_progress_size"
+            android:layout_marginTop="@dimen/common_space_small_size"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLastSearchesLabel" />
+
+        <TextView
+            android:id="@+id/tvLastSearchesMessage"
+            style="@style/WrapViewSize"
+            android:visibility="gone"
+            android:textAppearance="@style/TextAppearance.Bold"
+            android:text="@string/search_screen_last_searches_empty_message"
+            android:textColor="@color/red_500"
+            android:textSize="@dimen/common_error_text_size"
+            android:layout_marginTop="@dimen/common_space_small_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLastSearchesLabel" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/lastSearchesComponentBarrier"
+            style="@style/BlockViewConstrainedSize"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="rvLastSearches, pgLoadingLastSearches, tvLastSearchesMessage" />
 
         <TextView
             android:id="@+id/tvSeeAllRecentSearches"
             style="@style/WrapViewSize"
             android:gravity="end"
-            android:text="@string/search_screen_select_recent_searches_label"
+            android:text="@string/search_screen_see_all_recent_searches_label"
             android:textColor="@color/purple_700"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rvLastSearches" />
+            app:layout_constraintTop_toBottomOf="@+id/lastSearchesComponentBarrier" />
 
         <!-- Recent searches END -->
 

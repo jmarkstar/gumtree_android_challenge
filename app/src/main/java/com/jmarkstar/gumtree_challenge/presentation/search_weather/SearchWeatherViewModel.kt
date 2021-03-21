@@ -47,7 +47,7 @@ class SearchWeatherViewModel @Inject constructor(
                 _weather.postValue(Resource.Success(it))
             }
             result.doIfFailure {
-                _weather.postValue(Resource.Error(it?.message))
+                _weather.postValue(Resource.Error(it?.message, it))
             }
         }
     }
@@ -62,7 +62,7 @@ class SearchWeatherViewModel @Inject constructor(
                 _lastSearches.postValue(Resource.Success(it))
             }
             result.doIfFailure {
-                _lastSearches.postValue(Resource.Error(it?.message))
+                _lastSearches.postValue(Resource.Error(it?.message, it))
             }
         }
     }

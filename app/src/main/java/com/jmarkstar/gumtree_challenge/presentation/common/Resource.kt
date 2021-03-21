@@ -1,11 +1,8 @@
 package com.jmarkstar.gumtree_challenge.presentation.common
 
 // A generic class that contains data and status about loading this data.
-sealed class Resource<T>(
-    val data: T? = null,
-    val message: String? = null
-) {
-    class Success<T>(data: T) : Resource<T>(data)
-    class Loading<T>(data: T? = null) : Resource<T>(data)
-    class Error<T>(message: String?, data: T? = null) : Resource<T>(data, message)
+sealed class Resource<out T> {
+    class Success<out T>(val data: T) : Resource<T>()
+    class Loading<T> : Resource<T>()
+    class Error<T>(val message: String?, val throwable: Throwable? = null) : Resource<T>()
 }
