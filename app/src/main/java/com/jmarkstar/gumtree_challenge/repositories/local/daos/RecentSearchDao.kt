@@ -15,9 +15,12 @@ interface RecentSearchDao {
     @Query("SELECT * FROM recent_searches")
     suspend fun getAll(): List<RecentSearch>
 
+    @Query("SELECT * FROM recent_searches ORDER BY id desc LIMIT 5 ")
+    suspend fun getLastFive(): List<RecentSearch>
+
     @Query("DELETE FROM recent_searches")
     suspend fun deleteAll()
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(movies: RecentSearch)
+    suspend fun insert(query: RecentSearch)
 }

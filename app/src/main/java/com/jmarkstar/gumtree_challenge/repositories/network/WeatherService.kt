@@ -6,6 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 const val API_KEY_QUERY_PARAM_NAME = "appid"
+const val API_IMAGE_FORMAT = "http://openweathermap.org/img/wn/%s@2x.png"
 
 interface WeatherService {
 
@@ -20,8 +21,8 @@ interface WeatherService {
     @GET("data/2.5/weather")
     suspend fun getWeather(
         @Query("q") query: String,
-        @Query("zip") zipCode: String,
-        @Query("lang") lang: String,
+        @Query("zip") zipCode: String? = null,
+        @Query("lang") lang: String? = null,
         @Query("units") units: String = "metric"
     ): Response<GetWeatherResponse>
 }
