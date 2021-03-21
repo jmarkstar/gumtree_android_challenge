@@ -45,8 +45,7 @@ class WeatherRepositoryImplTest : BaseTest() {
 
     private lateinit var weatherRepository: WeatherRepository
 
-    private val queryMock = ""
-    private val countryMock = ""
+    private val queryMock = "city mock, PE"
 
     @Before
     fun setUp() {
@@ -74,7 +73,7 @@ class WeatherRepositoryImplTest : BaseTest() {
         recentSearchDao.deleteAll()
 
         // When
-        val resultOf = weatherRepository.getWeatherBy(queryMock, countryMock)
+        val resultOf = weatherRepository.getWeatherBy(queryMock)
 
         // Then
         assert(resultOf is ResultOf.Success)
@@ -97,7 +96,7 @@ class WeatherRepositoryImplTest : BaseTest() {
         networkState.isConnected = false
 
         // When
-        val resultOf = weatherRepository.getWeatherBy(queryMock, countryMock)
+        val resultOf = weatherRepository.getWeatherBy(queryMock)
 
         // Then
         assert(resultOf is ResultOf.Failure)
@@ -113,7 +112,7 @@ class WeatherRepositoryImplTest : BaseTest() {
         mockWebServer.enqueue(UnitTestUtils.mockJsonResponse(404, "get_weather_response_not_found.json"))
 
         // When
-        val resultOf = weatherRepository.getWeatherBy(queryMock, countryMock)
+        val resultOf = weatherRepository.getWeatherBy(queryMock)
 
         // Then
         assert(resultOf is ResultOf.Failure)
@@ -133,7 +132,7 @@ class WeatherRepositoryImplTest : BaseTest() {
         mockWebServer.enqueue(UnitTestUtils.mockJsonResponse(401, "get_weather_response_not_allowed.json"))
 
         // When
-        val resultOf = weatherRepository.getWeatherBy(queryMock, countryMock)
+        val resultOf = weatherRepository.getWeatherBy(queryMock)
 
         // Then
         assert(resultOf is ResultOf.Failure)

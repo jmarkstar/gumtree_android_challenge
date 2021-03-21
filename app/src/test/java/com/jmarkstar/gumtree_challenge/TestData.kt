@@ -1,5 +1,6 @@
 package com.jmarkstar.gumtree_challenge
 
+import com.jmarkstar.gumtree_challenge.domain.models.WeatherModel
 import com.jmarkstar.gumtree_challenge.repositories.entities.RecentSearch
 import java.util.Date
 
@@ -14,4 +15,13 @@ val fakeRecentSearches = arrayListOf(
     RecentSearch(6, "7A Johnson street, Chatswood, AU", dateTime),
     RecentSearch(7, "46 AV Arequipa, Lima, PE", dateTime),
     RecentSearch(8, "Avenida Siempre Viva, Lima, PE", dateTime)
+)
+
+val fakeWeather = WeatherModel(
+    "Rain",
+    "moderate rain",
+    "http://openweathermap.org/img/wn/10n@2x.png",
+    20,
+    23,
+    70
 )
