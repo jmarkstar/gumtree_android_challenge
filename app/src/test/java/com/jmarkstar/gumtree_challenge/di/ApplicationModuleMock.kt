@@ -21,6 +21,11 @@ import javax.inject.Singleton
 )
 object ApplicationModuleMock {
 
+    @ApiKeyString
+    @Singleton
+    @Provides
+    fun provideApiKey() = "apiKeyMock"
+
     @Singleton
     @Provides
     fun provideBaseApiUrl(): HttpUrl = HttpUrl.Builder()

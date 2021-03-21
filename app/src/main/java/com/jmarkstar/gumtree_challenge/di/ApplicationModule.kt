@@ -21,6 +21,11 @@ import okhttp3.HttpUrl
 @InstallIn(SingletonComponent::class)
 object ApplicationModule {
 
+    @ApiKeyString
+    @Singleton
+    @Provides
+    fun provideApiKey() = BuildConfig.API_KEY
+
     @Singleton
     @Provides
     fun provideBaseApiUrl() = HttpUrl.Builder()
