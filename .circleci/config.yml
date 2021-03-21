@@ -207,7 +207,6 @@ workflows:
             branches:
               only:
                 - /^task\/.*/
-                - main
 
       - build_test_debug:
           filters:
@@ -215,21 +214,21 @@ workflows:
               only:
                 - /^feature\/.*/
                 - develop
-
-      - build_test_release:
-          requires:
-            - build_debug
-            - test_debug
-
-          filters:
-            branches:
-              only:
-                - /^release\/.*/
                 - main
+
+      #- build_test_release:
+      #    requires:
+      #      - build_debug
+      #      - test_debug
+      #
+      #    filters:
+      #      branches:
+      #        only:
+      #          - /^release\/.*/
+      #          - main
 
       - generate_apk:
           requires:
-            - build_test_release
             - build_test_debug
 
           filters:
