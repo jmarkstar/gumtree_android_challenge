@@ -3,6 +3,7 @@ package com.jmarkstar.gumtree_challenge.domain.usecases.recent_searches
 import com.jmarkstar.gumtree_challenge.common.BaseTest
 import com.jmarkstar.gumtree_challenge.domain.ResultOf
 import com.jmarkstar.gumtree_challenge.domain.repositories.RecentSearchRepository
+import com.jmarkstar.gumtree_challenge.fakeLastFiveSearchModels
 import com.jmarkstar.gumtree_challenge.fakeRecentSearches
 import com.jmarkstar.gumtree_challenge.repositories.entities.toModels
 import com.jmarkstar.gumtree_challenge.repositories.exceptions.DatabaseException
@@ -29,9 +30,7 @@ class GetLastFiveRecentSearchesUseCaseImplTest : BaseTest() {
     @Test
     fun `test get last five recent searches use case success`() = runBlockingTest {
         // Given
-        val models = fakeRecentSearches.toModels()
-        val lastIndex = fakeRecentSearches.size - 1
-        val fakeResult = ResultOf.Success(models.subList(lastIndex-5, lastIndex))
+        val fakeResult = ResultOf.Success(fakeLastFiveSearchModels)
         coEvery { recentSearchRepository.getLastFiveRecentSearches() } returns fakeResult
 
         // When

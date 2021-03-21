@@ -2,6 +2,7 @@ package com.jmarkstar.gumtree_challenge
 
 import com.jmarkstar.gumtree_challenge.domain.models.WeatherModel
 import com.jmarkstar.gumtree_challenge.repositories.entities.RecentSearch
+import com.jmarkstar.gumtree_challenge.repositories.entities.toModels
 import java.util.Date
 
 private val dateTime = Date().time
@@ -16,6 +17,9 @@ val fakeRecentSearches = arrayListOf(
     RecentSearch(7, "46 AV Arequipa, Lima, PE", dateTime),
     RecentSearch(8, "Avenida Siempre Viva, Lima, PE", dateTime)
 )
+
+private val lastIndex = fakeRecentSearches.size - 1
+val fakeLastFiveSearchModels = fakeRecentSearches.toModels().subList(lastIndex - 5, lastIndex)
 
 val fakeWeather = WeatherModel(
     "Rain",
