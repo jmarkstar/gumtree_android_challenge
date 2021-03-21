@@ -82,6 +82,7 @@ class SearchWeatherFragment : BaseFragment<FragmentSearchWeatherBinding>() {
             rvLastSearches.adapter = recentSearchAdapter
 
             btnSearch.setOnClickListener {
+                // TODO: Add search by zip code feature
                 // val searchByCityName = rbCityName.isChecked
                 viewModel.searchWeather(etSearch.text.toString())
             }
@@ -110,6 +111,7 @@ class SearchWeatherFragment : BaseFragment<FragmentSearchWeatherBinding>() {
         weatherFeelsLike.text = String.format(getString(R.string.search_screen_weather_feels_like), weather?.feelsLike)
         weatherHumidity.text = String.format(getString(R.string.search_screen_weather_humidity), weather?.humidity)
         weatherDescription.text = String.format(getString(R.string.search_screen_weather_description), weather?.name, weather?.description)
+        weatherPlace.text = String.format(getString(R.string.search_screen_weather_place), weather?.place, weather?.country)
 
         viewModel.loadFiveLastSearches()
     }

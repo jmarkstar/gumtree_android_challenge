@@ -168,7 +168,7 @@
 
         <TextView
             android:id="@+id/weatherTemperature"
-            style="@style/BlockViewConstrainedSize"
+            style="@style/Text.Bold"
             android:layout_marginTop="@dimen/common_space_large_size"
             android:textSize="@dimen/common_text_x_large_size"
             app:layout_constraintEnd_toEndOf="parent"
@@ -196,6 +196,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/weatherIconGuideline"
             app:layout_constraintTop_toBottomOf="@+id/weatherDescription" />
+
+        <TextView
+            android:id="@+id/weatherPlace"
+            style="@style/Text.Bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/weatherIconGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/weatherHumidity" />
 
         <!-- Weather END -->
 

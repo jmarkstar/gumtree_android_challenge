@@ -12,6 +12,7 @@
     <string name="search_screen_write_here_hint">Write here</string>
     <string name="search_screen_weather_description">%1$s: %2$s</string>
     <string name="search_screen_weather_feels_like">but feels like %1$d °C</string>
-    <string name="search_screen_weather_humidity">%1$d%%</string>
+    <string name="search_screen_weather_humidity">Humidity: %1$d%%</string>
+    <string name="search_screen_weather_place">%1$s, %2$s</string>
     <string name="search_screen_weather_temperature">%1$d °C</string>
 </resources>
