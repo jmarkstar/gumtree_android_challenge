@@ -80,7 +80,7 @@ class WeatherRepositoryImplTest : BaseTest() {
         val movieModel = (resultOf as ResultOf.Success).value
         assertEquals("Rain", movieModel.name)
         assertEquals("moderate rain", movieModel.description)
-        assertEquals("http://openweathermap.org/img/wn/10n@2x.png", movieModel.iconUrl)
+        assertEquals("https://openweathermap.org/img/wn/10n@2x.png", movieModel.iconUrl)
         assertEquals(20, movieModel.temperature)
         assertEquals(23, movieModel.feelsLike)
         assertEquals(98, movieModel.humidity)

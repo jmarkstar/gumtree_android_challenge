@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">gumtree_android_challenge</string>
+    <string name="app_name">Weda Demo</string>
+
+    <string name="search_screen_title">Check the weather</string>
+    <string name="search_screen_see_all_recent_searches_label">Select one of your recent searches:</string>
+    <string name="search_screen_select_recent_searches_label">See all recent searches</string>
+    <string name="search_screen_search_button">Search</string>
+    <string name="search_screen_search_new_place_label">Or search a new place by:</string>
+    <string name="search_screen_search_option_city_name">City Name</string>
+    <string name="search_screen_search_option_zip_code">Zip Code</string>
+    <string name="search_screen_write_here_hint">Write here</string>
+    <string name="search_screen_weather_description">%1$s: %2$s</string>
+    <string name="search_screen_weather_feels_like">but feels like %1$d °C</string>
+    <string name="search_screen_weather_humidity">%1$d%%</string>
+    <string name="search_screen_weather_temperature">%1$d °C</string>
 </resources>

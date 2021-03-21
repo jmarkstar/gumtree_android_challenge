@@ -36,6 +36,8 @@ class SearchWeatherViewModel @Inject constructor(
     private val _lastSearches = MutableLiveData<Resource<List<RecentSearchModel>>>()
 
     fun searchWeather(query: String) {
+        // TODO: Do some validations
+
         _weather.postValue(Resource.Loading())
 
         viewModelScope.launch(dispatcherProvider.IO) {
