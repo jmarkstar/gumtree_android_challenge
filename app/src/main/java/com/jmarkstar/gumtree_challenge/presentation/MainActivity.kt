@@ -1,12 +1,21 @@
 package com.jmarkstar.gumtree_challenge.presentation
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.jmarkstar.gumtree_challenge.R
+import com.jmarkstar.gumtree_challenge.databinding.ActivityMainBinding
+import com.jmarkstar.gumtree_challenge.presentation.common.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
+
+    override fun layoutId() = R.layout.activity_main
+
+    override fun navHostFragment() = R.id.nav_host_fragment
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+
+        binding.apply {
+            setupToolbar(toolbar)
+        }
     }
 }
