@@ -83,6 +83,7 @@ class RecentSearchRepositoryImplTest : BaseTest() {
 
         // When
         val resultOf = recentSearchRepository.deleteAllRecentSearches()
+
         // Then
         assert(resultOf is ResultOf.Success)
         val success = (resultOf as ResultOf.Success).value

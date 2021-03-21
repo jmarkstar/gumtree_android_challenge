@@ -5,5 +5,5 @@ import com.jmarkstar.gumtree_challenge.domain.models.WeatherModel
 
 interface WeatherRepository {
 
-    suspend fun getWeatherBy(query: String, country: String): ResultOf<WeatherModel>
+    suspend fun getWeatherBy(query: String): ResultOf<WeatherModel>
 }

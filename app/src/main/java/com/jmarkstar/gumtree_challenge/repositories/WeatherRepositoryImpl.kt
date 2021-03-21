@@ -1,11 +1,13 @@
 package com.jmarkstar.gumtree_challenge.repositories
 
+import android.database.sqlite.SQLiteException
 import com.google.gson.Gson
 import com.jmarkstar.gumtree_challenge.common.util.NetworkState
 import com.jmarkstar.gumtree_challenge.domain.ResultOf
 import com.jmarkstar.gumtree_challenge.domain.models.WeatherModel
 import com.jmarkstar.gumtree_challenge.domain.repositories.WeatherRepository
 import com.jmarkstar.gumtree_challenge.repositories.entities.RecentSearch
+import com.jmarkstar.gumtree_challenge.repositories.exceptions.DatabaseException
 import com.jmarkstar.gumtree_challenge.repositories.exceptions.NetworkException
 import com.jmarkstar.gumtree_challenge.repositories.exceptions.NotInternetException
 import com.jmarkstar.gumtree_challenge.repositories.local.daos.RecentSearchDao
@@ -24,7 +26,7 @@ class WeatherRepositoryImpl@Inject constructor(
     private val gson: Gson
 ) : WeatherRepository {
 
-    override suspend fun getWeatherBy(query: String, country: String) = if (networkState.isConnected) {
+    override suspend fun getWeatherBy(query: String) = if (networkState.isConnected) {
         weatherService.getWeather(query).let { response ->
             if (response.isSuccessful && response.body() != null) {
                 response.body()?.let { weatherResponse ->
@@ -40,7 +42,11 @@ class WeatherRepositoryImpl@Inject constructor(
                         recentSearchDao.insert(RecentSearch(query, Date().time))
                         ResultOf.Success(weather)
                     } catch (ex: IOException) {
+                        ex.printStackTrace()
                         ResultOf.Failure(NetworkException(response.code(), "Error Parsing response json"))
+                    } catch (ex: SQLiteException) {
+                        ex.printStackTrace()
+                        ResultOf.Failure(DatabaseException())
                     }
                 } ?: kotlin.run {
                     ResultOf.Failure(NetworkException(response.code(), "Error processing http response: body is null"))
