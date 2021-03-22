@@ -18,6 +18,8 @@ abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
 
     abstract fun layoutId(): Int
 
+    abstract fun screenTitleId(): Int
+
     var baseActivity: BaseActivity<*>? = null
 
     override fun onAttach(context: Context) {
@@ -33,6 +35,10 @@ abstract class BaseFragment<Binding : ViewDataBinding> : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        if (screenTitleId() != 0) {
+            baseActivity!!.setScreenTitle(screenTitleId())
+        }
+
         binding = DataBindingUtil.inflate(inflater, layoutId(), container, false)
         return binding.root
     }

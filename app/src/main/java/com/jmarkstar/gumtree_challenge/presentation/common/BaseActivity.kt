@@ -3,7 +3,10 @@ package com.jmarkstar.gumtree_challenge.presentation.common
 import android.content.Context
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.MotionEvent
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
@@ -21,6 +24,8 @@ abstract class BaseActivity<Binding : ViewDataBinding> : AppCompatActivity() {
     var navController: NavController? = null
 
     abstract fun layoutId(): Int
+
+    abstract fun screenTitleId(): Int
 
     open fun allowScreenshot() = false
 
@@ -62,9 +67,16 @@ abstract class BaseActivity<Binding : ViewDataBinding> : AppCompatActivity() {
 
     protected fun setupToolbar(toolbar: Toolbar) {
         setSupportActionBar(toolbar)
+        if (screenTitleId() != 0) {
+            setScreenTitle(screenTitleId())
+        }
         navController?.apply {
             NavigationUI.setupWithNavController(toolbar, this)
         }
+    }
+
+    fun setScreenTitle(@StringRes titleRes: Int) {
+        supportActionBar?.title = getString(titleRes)
     }
 
     override fun onBackPressed() {
@@ -80,5 +92,14 @@ abstract class BaseActivity<Binding : ViewDataBinding> : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (currentFocus != null) {
+            val imm: InputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+        }
+        return super.dispatchTouchEvent(ev)
     }
 }

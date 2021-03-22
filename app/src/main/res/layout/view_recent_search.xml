@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="recentSearch"
+            type="com.jmarkstar.gumtree_challenge.domain.models.RecentSearchModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        style="@style/BlockPadded">
+
+        <TextView
+            android:id="@+id/tvQuery"
+            android:text="@{recentSearch.query}"
+            style="@style/Text.Bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvDate"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Chatswood, au"/>
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:text="@{recentSearch.datetimeFormatted()}"
+            style="@style/WrapViewSize"
+            app:layout_constraintStart_toEndOf="@+id/tvQuery"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="20/03/2020"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

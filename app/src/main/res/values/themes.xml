@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Gumtree_android_challenge" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Gumtree_android_challenge" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -17,20 +17,69 @@
         <item name="android:windowContentTransitions">true</item>
     </style>
 
-    <style name="TextAppearance.Bold" parent="android:TextAppearance">
-        <item name="fontPath">fonts/SF-UI-Text-Bold.otf</item>
-    </style>
-
     <style name="ToolbarStyle" parent="Widget.AppCompat.Light.ActionBar.Solid">
         <item name="android:titleTextStyle">@style/Toolbar.TitleText</item>
     </style>
 
     <style name="ToolbarTheme" parent="Widget.AppCompat.Light.ActionBar.Solid">
         <item name="android:textColorSecondary">@color/black</item>
+        <item name="android:background">@color/purple_500</item>
     </style>
 
     <style name="Toolbar.TitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textSize">23sp</item>
+        <item name="fontPath">fonts/SF-UI-Text-Bold.otf</item>
+    </style>
+
+    <!-- Common view sizes' styles -->
+
+    <style name="FullViewSize">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="BlockViewSize">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="BlockViewConstrainedSize">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="WrapViewSize">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ScreenPadded" parent="FullViewSize">
+        <item name="android:layout_marginStart">@dimen/common_space_small_size</item>
+        <item name="android:layout_marginEnd">@dimen/common_space_small_size</item>
+        <item name="android:layout_marginTop">@dimen/common_space_small_size</item>
+        <item name="android:layout_marginBottom">@dimen/common_space_small_size</item>
+    </style>
+
+    <style name="BlockPadded" parent="BlockViewSize">
+        <item name="android:layout_marginStart">@dimen/common_space_small_size</item>
+        <item name="android:layout_marginEnd">@dimen/common_space_small_size</item>
+        <item name="android:layout_marginTop">@dimen/common_space_small_size</item>
+        <item name="android:layout_marginBottom">@dimen/common_space_small_size</item>
+    </style>
+
+    <!-- Common Text styles -->
+
+    <style name="Text" parent="BlockViewConstrainedSize">
+        <item name="android:textSize">@dimen/common_text_normal_size</item>
+    </style>
+
+    <style name="Text.Bold" parent="Text">
+        <item name="android:textAppearance">@style/TextAppearance.Bold</item>
+    </style>
+
+    <!-- Common TextAppearance styles -->
+
+    <style name="TextAppearance.Bold" parent="android:TextAppearance">
         <item name="fontPath">fonts/SF-UI-Text-Bold.otf</item>
     </style>
 

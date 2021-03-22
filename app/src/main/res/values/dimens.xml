@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Common -->
+
+    <dimen name="common_space_tiny_size">6sp</dimen>
+    <dimen name="common_space_small_size">12sp</dimen>
+    <dimen name="common_space_normal_size">24sp</dimen>
+    <dimen name="common_space_large_size">32sp</dimen>
+
+    <dimen name="common_text_small_size">12sp</dimen>
+    <dimen name="common_text_normal_size">14sp</dimen>
+    <dimen name="common_text_large_size">20sp</dimen>
+    <dimen name="common_text_x_large_size">32sp</dimen>
+
+    <dimen name="common_error_text_size">16sp</dimen>
+
+    <!-- Search weather screen -->
+
+    <dimen name="search_button_height">45dp</dimen>
+    <dimen name="search_button_width">100dp</dimen>
+    <dimen name="search_progress_size">60dp</dimen>
+    <dimen name="weather_icon_height">150dp</dimen>
+    <dimen name="weather_feel_list_text_size">16sp</dimen>
+</resources>

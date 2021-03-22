@@ -2,6 +2,23 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/searchWeatherFragment">
 
+    <fragment
+        android:id="@+id/searchWeatherFragment"
+        android:name="com.jmarkstar.gumtree_challenge.presentation.search_weather.SearchWeatherFragment"
+        tools:layout="@layout/fragment_search_weather">
+
+        <action
+            android:id="@+id/action_see_all_recent_searches"
+            app:destination="@+id/recentSearchesFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/recentSearchesFragment"
+        android:name="com.jmarkstar.gumtree_challenge.presentation.recent_searches.RecentSearchesFragment"
+        android:label="RecentSearchesFragment"
+        tools:layout="@layout/fragment_recent_searches"/>
 </navigation>

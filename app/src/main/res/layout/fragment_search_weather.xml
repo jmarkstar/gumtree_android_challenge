@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout style="@style/ScreenPadded">
+
+        <!-- Recent searches BEGIN -->
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/last_common_searches_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="tvLastSearchesLabel,rvLastSearches,tvSeeAllRecentSearches" />
+
+        <TextView
+            android:id="@+id/tvLastSearchesLabel"
+            style="@style/BlockViewConstrainedSize"
+            android:text="@string/search_screen_select_recent_searches_label"
+            android:textSize="@dimen/common_text_large_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvLastSearches"
+            style="@style/BlockViewConstrainedSize"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLastSearchesLabel"
+            android:overScrollMode="never"
+            tools:itemCount="3"
+            tools:listitem="@layout/view_recent_search" />
+
+        <ProgressBar
+            android:id="@+id/pgLoadingLastSearches"
+            android:layout_width="@dimen/search_progress_size"
+            android:layout_height="@dimen/search_progress_size"
+            android:layout_marginTop="@dimen/common_space_small_size"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLastSearchesLabel" />
+
+        <TextView
+            android:id="@+id/tvLastSearchesMessage"
+            style="@style/WrapViewSize"
+            android:visibility="gone"
+            android:textAppearance="@style/TextAppearance.Bold"
+            android:text="@string/search_screen_last_searches_empty_message"
+            android:textColor="@color/red_500"
+            android:textSize="@dimen/common_error_text_size"
+            android:layout_marginTop="@dimen/common_space_small_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLastSearchesLabel" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/lastSearchesComponentBarrier"
+            style="@style/BlockViewConstrainedSize"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="rvLastSearches, pgLoadingLastSearches, tvLastSearchesMessage" />
+
+        <TextView
+            android:id="@+id/tvSeeAllRecentSearches"
+            style="@style/WrapViewSize"
+            android:gravity="end"
+            android:text="@string/search_screen_see_all_recent_searches_label"
+            android:textColor="@color/purple_700"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lastSearchesComponentBarrier" />
+
+        <!-- Recent searches END -->
+
+        <!-- Search BEGIN -->
+
+        <TextView
+            android:id="@+id/tvSearchLabel"
+            style="@style/BlockViewConstrainedSize"
+            android:layout_marginTop="@dimen/common_space_small_size"
+            android:text="@string/search_screen_search_new_place_label"
+            android:textSize="@dimen/common_text_large_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSeeAllRecentSearches" />
+
+        <RadioGroup
+            android:id="@+id/searchOption"
+            style="@style/BlockViewConstrainedSize"
+            android:layout_marginBottom="@dimen/common_space_normal_size"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSearchLabel">
+
+            <RadioButton
+                android:id="@+id/rbCityName"
+                style="@style/WrapViewSize"
+                android:checked="true"
+                android:text="@string/search_screen_search_option_city_name" />
+
+            <RadioButton
+                android:id="@+id/rbZipCode"
+                style="@style/WrapViewSize"
+                android:layout_marginStart="@dimen/common_space_tiny_size"
+                android:text="@string/search_screen_search_option_zip_code" />
+
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/etSearch"
+            style="@style/BlockViewConstrainedSize"
+            android:layout_marginEnd="@dimen/common_space_small_size"
+            android:hint="@string/search_screen_write_here_hint"
+            app:layout_constraintEnd_toStartOf="@+id/btnSearch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchOption" />
+
+        <TextView
+            android:id="@+id/btnSearch"
+            android:layout_width="@dimen/search_button_width"
+            android:layout_height="@dimen/search_button_height"
+            android:background="@drawable/button_search_background"
+            android:gravity="center"
+            android:text="@string/search_screen_search_button"
+            android:textAppearance="@style/TextAppearance.Bold"
+            android:textColor="@drawable/button_search_text_color"
+            android:textSize="@dimen/common_text_large_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchOption" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/searchComponentBarrier"
+            style="@style/BlockViewConstrainedSize"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="etSearch, btnSearch" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/weatherIconGuideline"
+            style="@style/WrapViewSize"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.40" />
+
+        <!-- Search END -->
+
+        <!-- Weather BEGIN -->
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/weather_group"
+            style="@style/WrapViewSize"
+            android:visibility="gone"
+            app:constraint_referenced_ids="weatherIcon,weatherTemperature,weatherFeelsLike,weatherDescription,weatherHumidity,weatherPlace" />
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/weatherIcon"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/weather_icon_height"
+            android:layout_marginTop="@dimen/common_space_large_size"
+            android:layout_marginEnd="@dimen/common_space_small_size"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toStartOf="@+id/weatherIconGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchComponentBarrier"
+            tools:background="@color/teal_200"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/weatherTemperature"
+            style="@style/Text.Bold"
+            android:layout_marginTop="@dimen/common_space_large_size"
+            android:textSize="@dimen/common_text_x_large_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/weatherIconGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/searchComponentBarrier" />
+
+        <TextView
+            android:id="@+id/weatherFeelsLike"
+            style="@style/BlockViewConstrainedSize"
+            android:textSize="@dimen/weather_feel_list_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/weatherIconGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/weatherTemperature" />
+
+        <TextView
+            android:id="@+id/weatherDescription"
+            style="@style/BlockViewConstrainedSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/weatherIconGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/weatherFeelsLike" />
+
+        <TextView
+            android:id="@+id/weatherHumidity"
+            style="@style/BlockViewConstrainedSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/weatherIconGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/weatherDescription" />
+
+        <TextView
+            android:id="@+id/weatherPlace"
+            style="@style/Text.Bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/weatherIconGuideline"
+            app:layout_constraintTop_toBottomOf="@+id/weatherHumidity" />
+
+        <!-- Weather END -->
+
+        <ProgressBar
+            android:id="@+id/pgSearching"
+            android:layout_width="@dimen/search_progress_size"
+            android:layout_height="@dimen/search_progress_size"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchComponentBarrier" />
+
+        <TextView
+            android:id="@+id/tvMessage"
+            style="@style/WrapViewSize"
+            android:textAppearance="@style/TextAppearance.Bold"
+            android:textColor="@color/red_500"
+            android:textSize="@dimen/common_error_text_size"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchComponentBarrier" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

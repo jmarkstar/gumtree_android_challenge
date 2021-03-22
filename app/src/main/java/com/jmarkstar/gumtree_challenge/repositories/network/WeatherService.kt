@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 const val API_KEY_QUERY_PARAM_NAME = "appid"
-const val API_IMAGE_FORMAT = "http://openweathermap.org/img/wn/%s@2x.png"
+const val API_IMAGE_FORMAT = "https://openweathermap.org/img/wn/%s@2x.png"
 
 interface WeatherService {
 

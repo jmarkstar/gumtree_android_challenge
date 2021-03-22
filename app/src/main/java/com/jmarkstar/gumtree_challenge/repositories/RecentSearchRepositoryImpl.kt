@@ -12,7 +12,11 @@ class RecentSearchRepositoryImpl @Inject constructor(
 ) : RecentSearchRepository {
 
     override suspend fun getLastFiveRecentSearches() = try {
-        ResultOf.Success(recentSearchDao.getLastFive().toModels())
+        val list = recentSearchDao.getLastFive().toModels()
+        if (list.isNotEmpty())
+            ResultOf.Success(list)
+        else
+            ResultOf.Failure(IllegalStateException("Last Five Recent Searches list is empty"))
     } catch (ex: Exception) {
         ResultOf.Failure(DatabaseException())
     }

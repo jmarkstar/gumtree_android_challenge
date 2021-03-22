@@ -32,6 +32,8 @@ class WeatherRepositoryImpl@Inject constructor(
                 response.body()?.let { weatherResponse ->
                     try {
                         val weather = WeatherModel(
+                            weatherResponse.name,
+                            weatherResponse.sys.countryCode,
                             weatherResponse.weather[0].generalName,
                             weatherResponse.weather[0].description,
                             String.format(API_IMAGE_FORMAT, weatherResponse.weather[0].iconName),
