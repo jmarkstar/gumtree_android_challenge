@@ -22,6 +22,8 @@ private val lastIndex = fakeRecentSearches.size - 1
 val fakeLastFiveSearchModels = fakeRecentSearches.toModels().subList(lastIndex - 5, lastIndex)
 
 val fakeWeather = WeatherModel(
+    "Chatswood",
+    "AU",
     "Rain",
     "moderate rain",
     "http://openweathermap.org/img/wn/10n@2x.png",

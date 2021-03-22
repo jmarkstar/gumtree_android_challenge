@@ -151,7 +151,7 @@
             android:id="@+id/weather_group"
             style="@style/WrapViewSize"
             android:visibility="gone"
-            app:constraint_referenced_ids="weatherIcon,weatherTemperature,weatherFeelsLike,weatherDescription,weatherHumidity" />
+            app:constraint_referenced_ids="weatherIcon,weatherTemperature,weatherFeelsLike,weatherDescription,weatherHumidity,weatherPlace" />
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/weatherIcon"
